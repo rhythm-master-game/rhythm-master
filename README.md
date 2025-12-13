@@ -71,11 +71,9 @@ Mouse clicking on lanes is also supported.
 
 <p align="center">
   <img src="assets/screenshots/gameplay-1.png" width="48%">
-  <img src="assets/screenshots/gameplay-2.png" width="48%">
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/sublime-hit.png" width="48%">
   <img src="assets/screenshots/leaderboard.png" width="48%">
 </p>
 
