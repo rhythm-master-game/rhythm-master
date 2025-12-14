@@ -1,111 +1,63 @@
-# 🎵 Rhythm Master  
-### NFT Rhythm Game on WAX
+# 🎵 Rhythm Master
+### by **Sublime Sounds**
 
-![HTML](https://img.shields.io/badge/HTML-5-orange)
-![CSS](https://img.shields.io/badge/CSS-3-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow)
-![WAX](https://img.shields.io/badge/Blockchain-WAX-purple)
-![Web3](https://img.shields.io/badge/Web3-NFTs-pink)
-![Status](https://img.shields.io/badge/Status-Live-success)
+A blockchain-powered rhythm game built for the **WAX ecosystem**, featuring NFT-powered tracks, video/audio backgrounds, competitive leaderboards, and Season Pass access control.
 
-**Rhythm Master** is a browser-based rhythm game where **music NFTs become playable tracks**.  
-Built on the **WAX blockchain**, the game blends precise rhythm gameplay, on-chain SSN payments, and seasonal competition.
-
-> **Own the music. Master the rhythm. Compete for the top.**
+> **Status:** 🧪 Beta Testing Phase  
+> **Current Version:** `v0.9.0-beta`
 
 ---
 
-## 🎮 Play the Game
-👉 **Live Beta:**  
-https://www.sublime-sound.com/rythummaster.html
+## 🚀 Badges
+
+![Version](https://img.shields.io/badge/version-0.9.0--beta-ec4899)
+![Status](https://img.shields.io/badge/status-beta-testing-yellow)
+![Platform](https://img.shields.io/badge/platform-WAX%20Blockchain-purple)
+![Built With](https://img.shields.io/badge/built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
+![License](https://img.shields.io/badge/license-proprietary-red)
 
 ---
 
-## 🚀 Features
+## 🎮 About the Game
 
-- 🎮 5-lane rhythm gameplay
-- ⌨️ Keyboard controls (A S D F G)
-- 🖱️ Mouse lane clicking
-- 🎵 NFT-based music tracks (AtomicAssets)
-- ⏱️ Audio-synced timing engine (no drift)
-- 💥 Visual feedback:
-  - Lane pulsing
-  - Accuracy-scaled sparks
-  - Screen shake on perfect hits
-  - Judgement text (SUBLIME! / GREAT / OK / MISS)
-- 🔥 Combo & multiplier system
-- 🏆 Per-track seasonal leaderboards
-- 💰 On-chain SSN entry fee
-- 👑 Admin-only season reset
+**Rhythm Master** is a fast-paced rhythm game where players tap falling notes in time with music NFTs they own on WAX.
+
+Each track NFT can include:
+- 🎵 **Audio**
+- 🎬 **Video backgrounds**
+- 🖼️ **Static artwork**
+
+Gameplay reacts visually and physically with:
+- Lane pulses
+- Sparks
+- Screen shake on **SUBLIME!** hits
+- Score multipliers (x2 / x3)
 
 ---
 
-## 🧱 Tech Stack
+## 🧩 Key Features
 
-- **Frontend:** HTML, CSS, Vanilla JavaScript
-- **Blockchain:** WAX
-- **NFT Standard:** AtomicAssets
-- **Token:** SSN (`metatoken.gm`)
-- **Wallets:** WAX Cloud Wallet, Anchor
-- **Storage:** Browser `localStorage`
-
-No backend. No frameworks. Fully client-side.
-
----
-
-## 🎹 Controls
-
-| Lane | Key |
-|----|----|
-| 1 | A |
-| 2 | S |
-| 3 | D |
-| 4 | F |
-| 5 | G |
-
-Mouse clicking on lanes is also supported.
+- 🔗 **WAX Cloud Wallet login**
+- 🪙 **NFT-based track selection**
+- 🎥 **Non-looping video backgrounds**
+- ⏸️ **Orientation-aware pause/resume**
+- 📱 **Mobile-first gesture handling**
+- 🏆 **Local leaderboard (per track & season)**
+- 🎟️ **Season Pass NFT gating**
+- 🛡️ **Admin bypass support**
+- ⚡ **Multiplier bars (x2 / x3)**
+- 📊 **Accuracy-based scoring**
 
 ---
 
-## 🏆 Leaderboards & Seasons
+## 🔐 Access Control
 
-- Per-track leaderboards
-- Best score per wallet
-- Stored locally in browser
-- Reset each season
-- Admin-only reset control
+### Season Pass Requirement
+Players must own a specific **Season Pass NFT template** to start gameplay.
 
----
+- Start button is disabled if no pass is detected
+- Admin wallets bypass this restriction
 
-## 👑 Admin Wallet
-
-Wallet: `a1hd.wam`
-
-Admin abilities:
-- SSN payment bypass
-- Season reset button
-- Leaderboard reset
-
----
-
-## ⚠️ Disclaimer
-
-Scores and leaderboards are **client-side only**.  
-This project is intended for:
-- Community events
-- NFT showcases
-- Early-stage competitions
-
----
-
-## 📜 License
-
-All Rights Reserved © Sublime Sounds
-
----
-
-## 🔑 SEO Keywords
-
-`rhythm game` · `music NFT game` · `WAX blockchain game` ·  
-`web-based rhythm game` · `SSN token` · `AtomicAssets`
-
+```js
+const SEASON_PASS_TEMPLATE_ID = "123456"; // set per season
+const ADMINS = ["a1hd.wam", "fs1r2.wam"];
