@@ -12,7 +12,7 @@ This guide explains how to play, score points, and master combos.
 3. Select a track you own
 4. Pay **100 SSN** to play the selected track
    - Admin users are exempt
-   - Season Tracks are unlocked for Season Pass Holders
+   - Season Tracks are unlocked for Season Pass Holders, this ensures that during seasons, if players want to play any of the other tracks and practice with them, they will pay 100 $SSN to do so, $SSN collected goes directly into a pot which is raffled off at the end of the season.
 
 ---
 
