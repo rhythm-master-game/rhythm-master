@@ -74,7 +74,7 @@ Multipliers stack with combo scoring.
 
 - The game ends when the track finishes
 - Your score is saved to the leaderboard
-- You must pay again to replay a track (non-admins)
+- You must pay again to replay a track (non-admins), uness during season and you are a Pass holder, your 5 tracks will be unlocked for the whole season.
 
 ---
 
