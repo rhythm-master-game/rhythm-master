@@ -23,7 +23,7 @@ This project is currently in **Beta Testing Phase**.
 
 ## 🗂️ Seasons
 
-Each **Season** includes:
+Each **Season** includes 5 unlocked playable tracks:
 - **4 playable tracks**
 - **1 bonus autographed NFT**
 - Separate leaderboards per track
