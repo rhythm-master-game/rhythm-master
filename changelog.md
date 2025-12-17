@@ -1,3 +1,106 @@
+# 📝 Changelog – Rhythm Master (17/12/25)
+
+## 🚀 New Features
+
+### 🎮 Gameplay & Scoring
+- Added **combo-based celebration system** with animated on-screen text:
+  - **5x Combo** → *NICE COMBO!* (green)
+  - **10x Combo** → *GREAT COMBO!* (blue)
+  - **20x Combo** → *AMAZING COMBO!* (larger text)
+  - **30x Combo** → *SUBLIME COMBO!* (large pink)
+  - **50x Combo** → *RHYTHM MASTER!* (legendary, gold)
+- Combo celebrations display centrally with glow + fade animation (~2s).
+- Combos now **only build from GREAT and SUBLIME hits**.
+- Combo counter resets correctly on OK / MISS hits.
+- Score calculation adjusted to weight:
+  - SUBLIME > GREAT > OK
+- Multiplier notes (x2 / x3) visually enhanced and fully integrated with scoring.
+
+### 🎵 Media & IPFS
+- Robust **IPFS gateway fallback system** for audio and video:
+  - Multiple Pinata + Cloudflare + ipfs.io gateways
+- Supports **audio-only**, **video-only**, and **audio+video** NFTs.
+- Automatic unmute handling on game start to avoid silent playback.
+- Improved video-only track startup reliability.
+
+### 🧾 Payments & Economy
+- **Per-track SSN payment system**:
+  - Non-admin users must pay **100 SSN per track play**
+  - Payment resets when switching tracks
+- Admin accounts bypass payment logic entirely.
+- Improved SSN payment UX:
+  - Disabled buttons during processing
+  - Success + fallback confirmation handling
+- Added transaction link to WaxBlock explorer after payment.
+
+### 👛 Wallet Support
+- Dual wallet support:
+  - **WAX Cloud Wallet**
+  - **Anchor Wallet**
+- Separate login buttons for WAX and Anchor.
+- Unified gameplay flow regardless of wallet type.
+- Wallet buttons disabled appropriately during gameplay to prevent conflicts.
+
+### 🏆 Leaderboards (Server-Side)
+- Migrated leaderboard from localStorage to **Supabase backend**.
+- Server-side leaderboard features:
+  - Per-season
+  - Per-track
+  - Top 10 ranking
+  - Stores score, max combo, and user account
+- Only higher scores overwrite existing entries.
+- Leaderboard auto-refreshes on track change and game end.
+
+### 🎨 UI / UX Improvements
+- Centralized combo overlay layer (always on top).
+- Improved visual feedback for:
+  - SUBLIME / GREAT / OK / MISS
+  - Lane hit animations
+  - Screen shake on SUBLIME hits
+- Disabled login buttons during active gameplay.
+- Cleaner game-over flow with restart support.
+
+---
+
+## 🐛 Bug Fixes
+
+- Fixed muted audio/video on game start.
+- Fixed video-only tracks not starting gameplay.
+- Fixed combo counter incrementing on incorrect hits.
+- Fixed leaderboard not updating after game end.
+- Fixed duplicate NFTs appearing in track list by:
+  - De-duplicating via **template_id**
+  - Merging media fields safely
+- Fixed repeated note DOM buildup by clearing notes on game end.
+- Fixed payment flow edge cases where WaxJS throws after successful transaction.
+- Improved orientation pause/resume stability on mobile.
+
+---
+
+## ⚙️ Configuration & Toggles
+
+- Added `ENABLE_SEASON_PASS` flag to quickly enable/disable season pass checks.
+- Admin list centralized for easier permission control.
+- Improved IPFS CID normalization across all NFT schemas.
+
+---
+
+## ⚠️ Known Issues / Work in Progress
+
+- Anchor Wallet may show **“Unknown Blockchain ID”** warnings depending on chain configuration.
+- Anchor chain handling requires further stabilization and testing.
+- Some edge-case NFT schemas may still require manual mapping.
+- Server-side leaderboard anti-cheat and validation pending.
+
+---
+
+## 🗺️ Coming Next
+- Autographed NFT score modifiers
+- Fair play / advantage disclosure
+- Season-based rewards & DAO integration
+- Hardened Anchor wallet flow
+- Anti-cheat validation on leaderboard submissions
+
 # 📝 Changelog / Patch Notes (16/12/25)
 
 ## [Beta] – Current Development Cycle
