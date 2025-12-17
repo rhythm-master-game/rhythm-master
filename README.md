@@ -1,63 +1,95 @@
-# 🎵 Rhythm Master
-### by **Sublime Sounds**
+# 🎵 Rhythm Master – Beta
 
-A blockchain-powered rhythm game built for the **WAX ecosystem**, featuring NFT-powered tracks, video/audio backgrounds, competitive leaderboards, and Season Pass access control.
-
-> **Status:** 🧪 Beta Testing Phase  
-> **Current Version:** `v0.9.0-beta`
+**Rhythm Master** is a blockchain-powered rhythm game built on **WAX**, combining skill-based gameplay, NFTs, and seasonal competition.  
+This repository contains the live beta implementation.
 
 ---
 
-## 🚀 Badges
+## 🚀 Current Features
 
-![Version](https://img.shields.io/badge/version-0.9.0--beta-ec4899)
-![Status](https://img.shields.io/badge/status-beta-testing-yellow)
-![Platform](https://img.shields.io/badge/platform-WAX%20Blockchain-purple)
-![Built With](https://img.shields.io/badge/built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
-![License](https://img.shields.io/badge/license-proprietary-red)
-
----
-
-## 🎮 About the Game
-
-**Rhythm Master** is a fast-paced rhythm game where players tap falling notes in time with music NFTs they own on WAX.
-
-Each track NFT can include:
-- 🎵 **Audio**
-- 🎬 **Video backgrounds**
-- 🖼️ **Static artwork**
-
-Gameplay reacts visually and physically with:
-- Lane pulses
-- Sparks
-- Screen shake on **SUBLIME!** hits
-- Score multipliers (x2 / x3)
+### 🎮 Core Gameplay
+- 5-lane rhythm gameplay (keyboard + pointer support)
+- Dynamic note spawning synced to audio or video
+- Accurate hit detection with timing windows
+- Score & combo-based progression
+- Visual feedback:
+  - SUBLIME / GREAT / OK / MISS judgements
+  - Lane flashes, sparks, screen shake
+  - Multiplier pickups (x2, x3)
 
 ---
 
-## 🧩 Key Features
+### 🔥 Combo System
+Combos are earned **only from GREAT and SUBLIME hits**.
 
-- 🔗 **WAX Cloud Wallet login**
-- 🪙 **NFT-based track selection**
-- 🎥 **Non-looping video backgrounds**
-- ⏸️ **Orientation-aware pause/resume**
-- 📱 **Mobile-first gesture handling**
-- 🏆 **Local leaderboard (per track & season)**
-- 🎟️ **Season Pass NFT gating**
-- 🛡️ **Admin bypass support**
-- ⚡ **Multiplier bars (x2 / x3)**
-- 📊 **Accuracy-based scoring**
+| Combo | Display |
+|------|--------|
+| x5   | **NICE COMBO!** (green) |
+| x10  | **GREAT COMBO!** (blue) |
+| x20  | **AMAZING COMBO!** (larger text) |
+| x30  | **SUBLIME COMBO!** (pink) |
+| x50  | **RHYTHM MASTER!** (large gold text) |
+
+- Combo celebrations appear centered for ~2 seconds
+- Combo resets on MISS or OK
 
 ---
 
-## 🔐 Access Control
+### 🎧 Media Support
+- **Audio tracks via IPFS**
+- **Video-only or Audio-only NFTs supported**
+- Automatic IPFS gateway fallback:
+  - Pinata
+  - Cloudflare
+  - ipfs.io
+- Media auto-unmutes once gameplay starts
 
-### Season Pass Requirement
-Players must own a specific **Season Pass NFT template** to start gameplay.
+---
 
-- Start button is disabled if no pass is detected
-- Admin wallets bypass this restriction
+### 🧠 NFT Integration
+- Tracks are loaded from the `sublimesound` AtomicAssets collection
+- NFTs are deduplicated by **template ID**
+- Supports:
+  - `audio`
+  - `video / animation_url`
+  - `image`
+- Track selector populated dynamically from owned NFTs
 
+---
+
+### 🏆 Leaderboards (Server-Side)
+- Powered by **Supabase**
+- Per-season & per-track leaderboards
+- Stores:
+  - Best score
+  - Max combo
+  - Autograph flag (future use)
+- Only higher scores overwrite previous entries
+
+---
+
+### 💰 Payments & Economy
+- **100 SSN per track play** (non-admin users)
+- Admin accounts bypass payment
+- Payment handled via:
+  - WAX Cloud Wallet
+  - Anchor Wallet
+- Transaction links provided after payment
+- Payment resets per track change
+
+---
+
+### 👛 Wallet Support
+- ✅ WAX Cloud Wallet
+- ⚠️ Anchor Wallet (beta – chain ID sensitive)
+
+> Anchor requires a valid WAX chain ID.  
+> Incorrect IDs will cause `Unknown Blockchain` errors.
+
+---
+
+### 🔐 Season Pass (Toggleable)
+- Season Pass logic is present but **currently disabled**
+- Controlled via:
 ```js
-const SEASON_PASS_TEMPLATE_ID = "123456"; // set per season
-const ADMINS = ["a1hd.wam", "fs1r2.wam"];
+const ENABLE_SEASON_PASS = false;
