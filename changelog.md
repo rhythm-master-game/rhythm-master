@@ -1,3 +1,118 @@
+# Changelog (18/12/25)
+
+All notable changes to **Rhythm Master** will be documented in this file.
+
+---
+
+## [Unreleased] – Beta Improvements (Mobile, Gameplay & UX)
+
+### 🎮 Gameplay Changes
+- Added **hit window forgiveness buffer** for mobile players  
+  - Introduced `HIT_BUFFER` to reduce false MISS judgments on touch devices
+- Improved **note-to-hitline alignment**
+  - Notes now calculate position relative to the actual hit line instead of hardcoded values
+- Falling notes now **start slightly slower and accelerate gradually** during a track
+  - Visual speed scaling does not affect beat timing or score accuracy
+- Combo logic updated:
+  - Combos now increment on **GREAT! and SUBLIME! hits only**
+  - Combo resets correctly on MISS or OK hits
+
+---
+
+### 🔁 Restart System
+- Added **free restart system** per track:
+  - Players get **3 free restarts** without paying SSN again
+  - Restarting does **not submit scores**
+- Added **visual restart counter** (`Restarts left: X / 3`)
+- Restart button automatically:
+  - Disappears after all free restarts are used
+  - Requires SSN payment again once exhausted
+- Fixed logic so:
+  - Clicking **OK (not restart)** submits score (if higher than previous)
+  - Payment is required again after a completed run
+
+---
+
+### 📱 Mobile & Fullscreen Experience
+- Game now enters **fullscreen mode** automatically when starting a track
+- Added **landscape orientation lock** during gameplay (where supported)
+- Implemented **rotate device overlay hint** for mobile portrait mode
+- Game pauses/resumes automatically when device orientation changes
+- Prevented page scrolling and gesture conflicts during gameplay
+- Disabled blinking text cursor (`caret`) globally for cleaner visuals
+
+---
+
+### 🎨 Visual & UI Enhancements
+- Added new combo celebrations:
+  - **x5** → NICE COMBO! (green)
+  - **x10** → GREAT COMBO! (blue)
+  - **x20** → AMAZING COMBO!
+  - **x30** → SUBLIME COMBO!
+  - **x50** → RHYTHM MASTER! (gold, large)
+- Combo celebrations:
+  - Centered on screen
+  - Fade automatically after ~2 seconds
+- Multiplier indicator improvements:
+  - x2 → Pulsing yellow glow
+  - x3 → Glowing red pulse
+- Wallet badge improvements:
+  - Text is now perfectly centered inside badge
+  - Badge shows connected wallet type (WAX / Anchor)
+- Login buttons now correctly:
+  - Disable once logged in (WAX or Anchor)
+  - Prevent duplicate login attempts
+
+---
+
+### 🔊 Audio / Media
+- Fixed muted playback issues:
+  - Audio and video now explicitly unmute after user interaction
+- Improved IPFS media loading reliability:
+  - Audio and video use gateway fallback system
+- Video-only tracks now start correctly without audio dependency
+
+---
+
+### 🧾 Payments & Access
+- SSN payment now enforced **per track**
+- Payment status text correctly updates based on state:
+  - Initial login
+  - Free restart usage
+  - Post-game completion
+- Admin users:
+  - Bypass SSN payment
+  - Have unlimited restarts
+  - See admin-only controls
+
+---
+
+### 🏆 Leaderboards
+- Scores are now:
+  - Submitted only on valid completed runs
+  - Rejected if lower than player’s existing best score
+- Leaderboard refreshes automatically after submission
+- Restarted runs do not affect leaderboard data
+
+---
+
+### 🐛 Bug Fixes
+- Fixed false MISS detections caused by fullscreen scaling
+- Fixed note alignment issues after fullscreen/orientation changes
+- Fixed restart logic incorrectly requiring payment
+- Fixed combo counter persisting across restarts
+- Fixed login UI inconsistencies between WAX and Anchor
+- Fixed duplicate NFT template loading edge cases
+
+---
+
+## Notes
+- All changes are backward compatible with existing seasons
+- No contract changes required
+- Mobile experience significantly improved in this release
+
+---
+
 # Changelog (17/12/25)
 
 All notable changes to **Rhythm Master** will be documented in this file.
