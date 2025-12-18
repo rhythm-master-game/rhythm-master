@@ -7,6 +7,7 @@ Welcome to **Rhythm Master**, a rhythm-based music game powered by WAX NFTs.
 ## 🎮 How to Play
 
 - Select a track you own.
+- Pay 100 SSN during season, season tracks are unlocked, admins bypass this also
 - Press **Start** to begin.
 - Hit notes as they cross the hit line using:
   - A · S · D · F · G keys
