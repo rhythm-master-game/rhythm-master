@@ -87,16 +87,6 @@ This repository contains the live beta version currently undergoing community te
 
 ---
 
-## ⚙️ Configuration Flags
-
-```js
-const ENABLE_SEASON_PASS = false;
-const SSN_AMOUNT = "100.00000000";
-const MAX_RESTARTS = 3;
-const HIT_WINDOW = 0.18;
-
----
-
 ## ⚙️ **Beta Disclaimer**
 
 -Rhythm Master is currently in beta.
@@ -108,3 +98,15 @@ const HIT_WINDOW = 0.18;
 
 -Built by Sublime Sounds
 -Powered by WAX, SSN, and AtomicAssets
+
+## ⚙️ Configuration Flags
+
+```js
+const ENABLE_SEASON_PASS = false;
+const SSN_AMOUNT = "100.00000000";
+const MAX_RESTARTS = 3;
+const HIT_WINDOW = 0.18;
+
+---
+
+
