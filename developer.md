@@ -1,66 +1,46 @@
 # Rhythm Master – Developer Notes
 
-This document is intended for developers and contributors.
+---
+
+## 🎮 Core Systems
+- Notes are spawned on a time-based schedule
+- Visual position uses dynamic hit-line alignment
+- Scoring is time-based, not position-based
 
 ---
 
-## 🧱 Architecture Overview
-
-- Frontend: Vanilla HTML / CSS / JavaScript
-- Wallets:
-  - WAX Cloud Wallet (waxjs)
-  - Anchor Wallet (anchor-link)
-- NFTs: AtomicAssets API
-- Media: IPFS with multi-gateway fallback
-- Backend: Supabase (leaderboards)
-
----
-
-## 🔐 Wallet Logic
-
-- `walletType` controls transaction flow
-- Anchor and WAX share the same transfer structure
-- Admin accounts bypass:
-  - SSN payments
-  - Restart limits
-
----
-
-## 💰 Payment Flow
-
-1. User selects a track
-2. Pays **100 SSN**
-3. `paidForThisTrack = true`
-4. Grants:
-   - 1 full run
-   - 3 free restarts
-
-Payments are **per track**, not per session.
+## ⏱ Hit Detection
+- HIT_WINDOW = 180ms
+- HIT_BUFFER = +30ms (mobile forgiveness)
+- Final check: bd <= HIT_WINDOW + HIT_BUFFER
 
 ---
 
 ## 🔁 Restart Logic
-
-Key flags:
-- `restartAttempts`
-- `MAX_RESTARTS`
-- `allowFreeRestart`
-- `suppressScoreSubmit`
-
-Rules:
-- Restarts do not submit scores
-- Restart counter resets only on a new paid run
-- UI payment prompts are suppressed during free restarts
+- `allowFreeRestart` controls payment bypass
+- `suppressScoreSubmit` prevents leaderboard writes
+- Restarts reset visuals but not payment unless exhausted
 
 ---
 
-## 🎵 Timing & Sync
+## 📱 Fullscreen & Orientation
+- Game enters fullscreen on Start
+- Orientation locked to landscape when supported
+- Hit line Y-position recalculated dynamically
 
-- Notes are spawned using absolute timestamps
-- Dynamic speed affects **visual movement only**
-- Beat sync remains intact
+---
 
-Speed formula example:
-```js
-const progress = Math.min(1, now / duration);
-const speed = BASE_SPEED + progress * SPEED_RAMP;
+## 💳 Payments
+- SSN transfers handled via WAXJS or Anchor
+- Admins bypass payment logic
+- Payment required per track, not per session
+
+---
+
+## 🗄 Leaderboards
+- Stored in Supabase
+- Keyed by:
+  - season
+  - track name
+  - user account
+- Only higher scores overwrite existing records
