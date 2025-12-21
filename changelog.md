@@ -1,5 +1,60 @@
 # Changelog (21/12/25)
 
+## [Unreleased]
+
+### Added
+- Added **Re-scan Wallet** button to allow users to manually refresh their NFT inventory without reloading the page.
+- Implemented wallet re-scan logic that re-fetches AtomicAssets NFTs and rebuilds the track dropdown.
+- Added client-side guards to prevent duplicate NFT drop triggers per run.
+- Added SSN accumulation per run and settlement call on game end.
+- Added NFT win badge and optional transaction link in the Game Over screen.
+- Added NFT pool support (`nft_pool` table) for controlled NFT drops.
+- Added Supabase Edge Function `new-nft-drop` to:
+  - Validate eligibility
+  - Pick an unclaimed NFT
+  - Call `send-nft`
+  - Record drops in `nft_drops`
+  - Mark NFTs as claimed
+- Added extensive logging for NFT drops, SSN payouts, and analytics events.
+
+### Changed
+- Refactored NFT drop flow to be server-authoritative via Supabase Edge Functions.
+- Updated game-end logic to reliably trigger SSN settlement.
+- Improved IPFS media resolution with multiple gateway fallbacks.
+- Updated wallet UI locking to clearly show WAX vs Anchor login state.
+- Improved combo celebration overlays and NFT confetti effects.
+- Alphabetically sorted NFT tracks in the dropdown for better UX.
+
+### Fixed
+- Fixed issue where SSN rewards were never settled due to missing end-game call.
+- Fixed multiple cases of duplicated NFT drop requests from the client.
+- Fixed Supabase Edge Function CORS and OPTIONS handling.
+- Fixed `Illegal return statement` error in `new-nft-drop` by restructuring helper functions.
+- Fixed missing `txid` propagation from `send-nft` to client UI.
+- Fixed rescan button being disabled due to missing state re-enablement.
+- Fixed cases where video-only NFTs were incorrectly filtered out.
+- Fixed NFT dropdown not refreshing due to stale `tracks` state.
+- Fixed Anchor/WAX login UI desyncs after failed authentication attempts.
+
+### Known Issues
+- Newly purchased NFTs may not appear immediately if:
+  - The NFT is not in the expected collection
+  - The NFT lacks required `audio`, `video`, or media metadata
+  - AtomicAssets API caching delays occur
+- Anchor login may fail in embedded browsers (Telegram, in-app browsers).
+- Mobile Safari may block autoplay on first interaction.
+
+### Notes
+- NFT dropdown only shows **one entry per template ID** (deduplicated).
+- NFTs without playable media (audio/video) are intentionally excluded.
+- Service Role keys must **never** be exposed client-side.
+- AtomicAssets API responses may lag behind recent marketplace purchases.
+
+---  
+_End of changelog_
+
+# Changelog (21/12/25)
+
 All notable changes to **Rhythm Master** will be documented in this file.
 
 ---
