@@ -1,3 +1,133 @@
+# Changelog (21/12/25)
+
+All notable changes to Rhythm Master will be documented in this file.
+
+---
+
+## [Unreleased]
+
+---
+
+## [Beta – NFT Drop & Gameplay Systems Update]
+
+### 🎮 Gameplay Enhancements
+- Added **combo milestone celebrations**:
+  - x5 → *NICE COMBO!* (green)
+  - x10 → *GREAT COMBO!* (blue)
+  - x20 → *AMAZING COMBO!* (larger)
+  - x30 → *SUBLIME COMBO!* (pink)
+  - x50 → *RHYTHM MASTER!* (legendary)
+- Combo counter now increases **only on GREAT! and SUBLIME! hits**
+- Multiplier visuals improved:
+  - x2 → pulsating yellow circle
+  - x3 → glowing red circle
+- Notes now **start slightly slower and gently accelerate** over the track duration (visual only, beat sync preserved)
+- Restart system implemented:
+  - Up to **3 free restarts per track**
+  - Restarts do **not submit scores**
+  - After 3 restarts, payment is required again
+  - Visual restart counter added to HUD
+- Fixed muted audio issue on game start
+- Prevented score submission when restarting mid-track
+
+---
+
+### 📱 Mobile & UX Improvements
+- Game enters **fullscreen only on mobile devices**
+- Prevented fullscreen triggering on desktop browsers
+- Added orientation handling with pause/resume logic
+- Disabled blinking text cursor globally
+- Wallet badges visually centered and improved
+- Wallet login buttons correctly disabled after login (WAX & Anchor)
+
+---
+
+### 🔐 Wallet & Payment Logic
+- WAX Cloud Wallet login fully supported
+- Anchor Wallet login added and stabilized
+- Pay-per-track SSN system refined:
+  - 100 SSN required per track (non-admin)
+  - Admin users bypass payments
+  - Payment UI correctly resets after game end
+- Improved transaction error handling (successful tx despite WaxJS warnings)
+
+---
+
+### 🎵 NFT & Track Handling
+- NFT track list deduplicated by template ID
+- Tracks populated from AtomicAssets using normalized IPFS CIDs
+- IPFS gateway fallback system added for audio, video, and images
+- Track dropdown now supports:
+  - Audio-only NFTs
+  - Video-only NFTs
+- Track visuals correctly prioritize video with image fallback
+- Background media unmuted correctly on user interaction
+
+---
+
+### 🏆 Leaderboards & Backend
+- Supabase leaderboard integration stabilized
+- Scores only update if higher than previous personal best
+- Leaderboards scoped by **season + track**
+- Added tracking for max combo per score entry
+
+---
+
+### 🟢 Rare NFT Drop System (NEW)
+- Designed and implemented **rare in-game NFT drop mechanic**
+- Added new **green “NFT” note type** (very rare spawn)
+- NFT drop only triggers on **SUBLIME! hit**
+- Drop logic split into two stages for security:
+  1. Client-side trigger (no wallet secrets)
+  2. Supabase Edge Function for actual NFT transfer
+- Implemented **Supabase Edge Function: `send-nft`**
+  - Uses project wallet to transfer NFTs
+  - Restricted via Service Role key
+  - Enforces **daily send cap**
+  - Logs all sends to `nft_sends` table
+- NFT selection:
+  - Random NFT
+  - From `sublimesound` collection
+  - **Mythic rarity only**
+- Test mode toggle supported (safe dry runs)
+
+---
+
+### 🛡️ Security & Fair Play
+- Added daily NFT send cap to limit abuse
+- Server-side authority for NFT transfers
+- Asset ownership controlled entirely off-client
+- Prevented duplicate NFT rewards per trigger
+- Prepared hooks for future anti-bot extensions
+
+---
+
+### 🧱 Infrastructure & Developer Experience
+- Supabase tables designed for:
+  - Leaderboards
+  - NFT send logs
+  - Analytics expansion
+- Improved error logging across game loop and backend
+- Refactored wallet state handling to avoid UI desyncs
+
+---
+
+### 🐞 Bug Fixes
+- Fixed lanes disappearing after refactors
+- Fixed muted playback regression
+- Fixed Anchor blockchain ID errors
+- Fixed repeated NFT listings in track selector
+- Fixed score submission edge cases on restart
+- Fixed payment text showing during free restarts
+- Fixed fullscreen behavior on desktop browsers
+
+---
+
+## Notes
+This update introduces the foundation for **on-chain reward drops tied directly to gameplay skill**, while maintaining strong security guarantees and player fairness.
+
+Future work will expand NFT eligibility rules, rarity tuning, analytics dashboards, and DAO-governed reward parameters.
+
 # Changelog (18/12/25)
 
 All notable changes to **Rhythm Master** will be documented in this file.
