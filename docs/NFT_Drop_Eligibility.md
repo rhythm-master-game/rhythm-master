@@ -32,9 +32,10 @@ A player is eligible for an NFT drop only if **all** of the following are true:
 - Wallet is **not flagged** for abuse
 
 ### 2. Gameplay Requirements
+- Green NFT note appears randomly (very rare)
 - NFT note must be hit with:
-  - **GREAT** or **SUBLIME** timing
-- Misses or OK hits do **not** trigger eligibility
+  - **SUBLIME** timing
+- Misses, OK or GREAT hits do **not** trigger eligibility
 - Game must be played normally (no restart exploit)
 
 ### 3. Session Rules
