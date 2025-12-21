@@ -60,6 +60,14 @@ This repository contains the live beta version currently undergoing community te
 
 ---
 
+## NFT Drops (NEW)
+- Rare **green NFT notes** can appear in-game
+- Must be hit with a **SUBLIME** judgement
+- Triggers a **real NFT transfer** from project wallet
+- Fully secured server-side (no client minting)
+
+---
+
 ## 🔐 Wallet Support
 - WAX Cloud Wallet
 - Anchor Wallet
@@ -112,5 +120,3 @@ const MAX_RESTARTS = 3;
 const HIT_WINDOW = 0.18;
 
 ---
-
-
